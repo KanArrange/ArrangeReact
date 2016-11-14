@@ -95,6 +95,20 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
     }
+    signingConfigs{
+        debug {
+            storeFile file("../sina.keystor")
+            storePassword "sinachina"
+            keyAlias "sinakey"
+            keyPassword "sinachina"
+        }
+        release {
+            storeFile file("../sina.keystor")
+            storePassword "sinachina"
+            keyAlias "sinakey"
+            keyPassword "sinachina"
+        }
+    }
     splits {
         abi {
             reset()
@@ -107,6 +121,24 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+            ndk {
+                abiFilters "armeabi", "armeabi-v7a", "x86"
+            }
+//            multiDexEnabled true;
+
+        }
+        release {
+            signingConfig signingConfigs.release
+            proguardFile 'proguard.cfg'
+            ndk {
+                abiFilters "armeabi", "armeabi-v7a", "x86"
+            }
         }
     }
     // applicationVariants are e.g. debug, release
