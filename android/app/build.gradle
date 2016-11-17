@@ -169,6 +169,8 @@ dependencies {
     compile project(':react-native-share')
     compile project(':react-native-fbsdk')
     compile project(':react-native-send-intent')
+    compile project(':react-native-vector-icons')
+
     // From node_modules
 }
 

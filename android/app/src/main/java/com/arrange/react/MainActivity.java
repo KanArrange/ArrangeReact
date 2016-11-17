@@ -4,18 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 
-import com.BV.LinearGradient.LinearGradientPackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.facebook.CallbackManager;
-import com.facebook.appevents.AppEventsLogger;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactRootView;
 import com.facebook.react.common.LifecycleState;
 import com.facebook.react.shell.MainReactPackage;
-import com.facebook.reactnative.androidsdk.FBSDKPackage;
-
-import cl.json.RNSharePackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 
 public class MainActivity extends ReactActivity {
 
@@ -44,9 +40,10 @@ public class MainActivity extends ReactActivity {
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModuleName("index.android")
                 .addPackage(new MainReactPackage())
-                .addPackage(new FBSDKPackage(mCallbackManager))
-                .addPackage(new LinearGradientPackage())
-                .addPackage(new RNSharePackage())
+//                .addPackage(new FBSDKPackage(mCallbackManager))
+//                .addPackage(new LinearGradientPackage())
+//                .addPackage(new RNSharePackage())
+                .addPackage(new VectorIconsPackage())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
@@ -56,7 +53,7 @@ public class MainActivity extends ReactActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        mCallbackManager.onActivityResult(requestCode, resultCode, data);
+//        mCallbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
 
@@ -69,18 +66,18 @@ public class MainActivity extends ReactActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        AppEventsLogger.activateApp(getApplicationContext());
+//        AppEventsLogger.activateApp(getApplicationContext());
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        AppEventsLogger.deactivateApp(getApplicationContext());
+//        AppEventsLogger.deactivateApp(getApplicationContext());
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        AppEventsLogger.onContextStop();
+//        AppEventsLogger.onContextStop();
     }
 }
